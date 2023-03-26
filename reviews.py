@@ -12,7 +12,7 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Using header = None to prevent first row being the header
-data = pd.read_csv("IA2.csv", header = None)
+data = pd.read_csv("reviews_data.csv", header = None)
 
 # Grab only the second column
 data_review = data.iloc[:,1]
@@ -52,11 +52,11 @@ print(v2.toarray())
 tfidf_matrix = vectorizer.transform(processed_data2)
 print("Dimensions:", tfidf_matrix.shape)
 
-# Generating CSV
+# Generating final TF-IDF vectors CSV
 import pandas as pd
 df = pd.DataFrame(v2.toarray(), columns = vectorizer.get_feature_names_out())
 df.insert(loc = 0, column = "Reviews", value = processed_data2)
-df.to_csv("IA2_step4_LindaNgo.csv", index = False)
+df.to_csv("tf-idf-vectors.csv", index = False)
 
 # 5. POS-tag and TD-IDF (min doc frequency = 4)
 
@@ -86,8 +86,8 @@ print(POS_v2.toarray())
 tfidf_matrix = vectorizer.transform(POS_data_review)
 print("Dimensions:", tfidf_matrix.shape)
 
-# Generating CSV
+# Generating POS‐tag TF‐IDF vectors CSV
 import pandas as pd
 df = pd.DataFrame(POS_v2.toarray(), columns = vectorizer.get_feature_names_out())
 df.insert(loc = 0, column = "Reviews", value = data_review)
-df.to_csv("IA2_step5_LindaNgo.csv", index = False)
+df.to_csv("post-tag.csv", index = False)
