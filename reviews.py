@@ -48,7 +48,7 @@ print(vectorizer.vocabulary_)
 v2 = vectorizer.transform(processed_data2)
 print(v2.toarray())
 
-# 5. Vector Dimensions
+# Vector Dimensions
 tfidf_matrix = vectorizer.transform(processed_data2)
 print("Dimensions:", tfidf_matrix.shape)
 
@@ -58,7 +58,7 @@ df = pd.DataFrame(v2.toarray(), columns = vectorizer.get_feature_names_out())
 df.insert(loc = 0, column = "Reviews", value = processed_data2)
 df.to_csv("tf-idf-vectors.csv", index = False)
 
-# 6. POS-tag and TD-IDF (min doc frequency = 4)
+# 5. POS-tag and TD-IDF (min doc frequency = 4)
 
 POS_data_review = []
 
@@ -82,7 +82,7 @@ print(vectorizer.vocabulary_)
 POS_v2 = vectorizer.transform(POS_data_review)
 print(POS_v2.toarray())
 
-# 7. Vector Dimensions
+# Vector Dimensions
 tfidf_matrix = vectorizer.transform(POS_data_review)
 print("Dimensions:", tfidf_matrix.shape)
 
