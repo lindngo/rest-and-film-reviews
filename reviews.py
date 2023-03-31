@@ -12,7 +12,7 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Using header = None to prevent first row being the header
-data = pd.read_csv("reviews_data.csv", header = None)
+data = pd.read_csv("reviews-data.csv", header = None)
 
 # Grab only the second column
 data_review = data.iloc[:,1]
